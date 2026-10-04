@@ -27,7 +27,7 @@ VMware Workstation Pro 26H1 for Windows
 | 已安装的 VMware 完整版本号 | VMware Workstation Pro 26H1 for Windows |
 | 是否为教师指定版本 | 是|
 
-![VMware 版本](imgs/lab1_vmware_version.png)
+![VMware 版本]![alt text](Lab1_vmware_version.png)
 
 ---
 
@@ -383,4 +383,4 @@ cat hello.txt
 
 **2026 年 10 月 8 日 23:59:59**
 
-按仓库 `README.md` 第 4 节的规则：不晚于 10 月 8 日 23:59:59 创建 PR 并完成最后一次推送不算超时，10 月 9 日 00:00 起新建 PR 或向已有 PR 推送任何修改均算作超时。时间按北京时间计算，并以 GitHub 记录的最后一次推送时间为准。审核未通过的同学请务必在截止前完成修改。
+按仓库 `README.md` 第 4 节的规则：不晚于 10 月 8 日 23:59:59 创建 PR 并完成最后一次推送不算超时，10 月 9 日 00:00 起新建 PR 或向已有 PR 推送任何修改均算作超时。时间按北京时间计算，并以 GitHub 记录的最后一次推送时间为准。审核未通过的同学请务必在截止前完成修改 。
