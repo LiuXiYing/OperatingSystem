@@ -1,0 +1,103 @@
+version: 1
+
+course:
+  name: 操作系统
+  timezone: Asia/Shanghai
+  title_template: "[{student_id}{student_name}]{assignment_id}作业提交"
+  submission_path_template: "{student_id}{student_name}/{assignment_id}"
+  merge_method: merge
+
+features:
+  auto_merge: true
+  comment_review: true
+  close_late_pr: true
+  ai_review: true
+  ai_feedback: true
+  ocr_review: false
+  vision_review: true
+  metrics: true
+
+defaults:
+  min_nonempty_lines: 10
+  allow_extra_files: false
+  late_close_after_days: 7
+
+ai:
+  providers:
+    - provider: glm
+      model: glm-4.7-flash
+    - provider: gemini
+      model: gemini-3.5-flash-lite
+  consensus_rounds: 3
+  min_confidence: 0.8
+  timeout_seconds: 60
+  max_attempts: 5
+  max_file_bytes: 200000
+  max_total_bytes: 500000
+  max_output_tokens: 2048
+
+feedback:
+  timeout_seconds: 20
+  max_input_bytes: 100000
+  max_output_tokens: 2048
+
+ocr:
+  detection_model: PP-OCRv6_small_det
+  recognition_model: PP-OCRv6_small_rec
+  min_line_confidence: 0.65
+  max_text_chars: 20000
+
+vision:
+  providers:
+    - provider: glm
+      model: glm-4.1v-thinking-flash
+    - provider: gemini
+      model: gemini-3.5-flash-lite
+  consensus_rounds: 3
+  min_confidence: 0.85
+  fail_confidence: 0.9
+  timeout_seconds: 90
+  max_attempts: 5
+  max_images: 6
+  max_image_bytes: 5000000
+  max_total_bytes: 12000000
+  max_pixels: 25000000
+  max_side: 4096
+  max_output_tokens: 4096
+
+# 发布作业时在这里追加 Lab2、Lab3 等配置。
+# required_files 为精确文件名，不支持通配符；vision_files 支持 fnmatch 通配符。
+assignments:
+  Lab1:
+    deadline: "2026-10-08T23:59:59+08:00"
+    report_template: homework/Lab1/Lab1.md
+    required_files:
+      - Lab1.md
+      - imgs/lab1_vmware_version.png
+      - imgs/lab1_ubuntu_version.png
+      - imgs/lab1_network.png
+      - imgs/lab1_resources.png
+      - imgs/lab1_toolchain.png
+    vision_files:
+      - imgs/lab1_vmware_version.png
+      - imgs/lab1_ubuntu_version.png
+      - imgs/lab1_network.png
+      - imgs/lab1_resources.png
+      - imgs/lab1_toolchain.png
+    review_points:
+      - 审核范围：本作业只审核任务一至任务五的记录表格、环境验收总结表，以及「截图要求」小节列出的 5 张截图。操作手册里的创建课程基线快照、常见问题排查、安装介质校验码核对等内容属于补充说明，不要求在本报告中执行、填写或截图，报告中保留或删除都不影响判定。学生额外记录自己的排错过程可以接受，不因此加分，也不因未记录而扣分。
+      - 任务一 VMware 版本：应以 VMware Workstation Pro 的 Help → About 页面显示的实际版本为准，填写完整版本号，并明确是否与教师指定的 VMware Workstation Pro 26H1 for Windows 一致。版本号按本人安装包如实填写即可，不要求与讲义文字逐字相同；只写产品大类名称而没有版本号时记为不完整。
+      - 任务二 Ubuntu 版本：/etc/os-release 的 PRETTY_NAME 应同时包含 Ubuntu 24.04 与 LTS；uname -m 应为 x86_64；安装介质版本应包含 Ubuntu 24.04.4 LTS。安装后执行过系统更新时，当前小版本高于 24.04.4 属于正常现象，不算错误。三项应按本人输出填写，照抄讲义示例而不核对本人输出时记为未完成。
+      - 任务三 虚拟机联网：应记录本人虚拟机的私有 IPv4 地址（以 192.168、172 或 10 开头）和包含 default via 的默认路由；ping 223.5.5.5 与 ping 域名应成功；sudo apt update 应能正常完成且没有 Err 或 Failed。本作业不要求更换软件源，使用官方源（archive.ubuntu.com）或国内镜像站同样合格，不得因为报告中未换源、或 Get 行来自官方源而判为未完成或不完整。所在网络禁止 ping 时，只要 apt update 成功并在表格中说明情况，可判为合格。IP 地址、镜像站域名和网络模式按本人环境填写。
+      - 任务四 CPU 内存与存储：虚拟 CPU 至少 2 核、内存至少 4GB、虚磁盘至少 40GB，且与所选配置档位一致。free -h 与 df -h / 的显示值略小于 VMware 中设置的数值属于正常现象，不算错误。所选档位、核心数、内存和虚磁盘容量应按本人设置填写；档位与数值明显矛盾时记为不完整，并在反馈中指出矛盾之处。
+      - 任务五 软件安装与 vim：open-vm-tools 状态应为 active；gcc（或 cc）、make、gdb、git 四个命令都应能输出版本号，说明 build-essential、gdb、git 已安装；openssh-server 应已安装，ssh -V 能输出版本信息，且 22 端口处于监听（Ubuntu 24.04 下 SSH 由 ssh.socket 按需激活，systemctl is-active ssh 显示 inactive 属于正常现象，不据此判错）；vim --version 应显示完整版 Vim，而不是 command not found 或 Small version；dpkg-query 检查到的软件包都应显示已安装版本。本次实验不要求编译 C 程序，报告中没有编译运行结果不扣分。个别工具未安装时，应在报告中说明并补齐后重新截图，不直接判为不合格；工具链、SSH 或 vim 整体缺失且报告中未作说明时记为未完成。
+      - 提交物边界：本作业只要求提交 Lab1.md 与 5 张截图，不要求提交任何代码、脚本或文本文件。学生在报告中提到用 vim 创建了 hello.txt 时，只要截图能证明完成了编辑与保存即可，不需要上传该文件；报告中没有出现 hello.txt、hello.c 等源文件时不得判为未完成，也不要要求学生补交文件。学生的提交目录里若出现了作业清单以外的文件，按多余文件处理，并在反馈中指出应删除的文件名。
+      - 环境验收总结表与结论边界：总结表每一行只需给出明确结论，遇到的问题、解决方法及能否继续后续实验应在表后统一说明，不要求在每一行重复。只要前文任务表已填写且与总结一致，不得因总结表未重复版本号、IP 或容量数值而判为不合格。报告中不得编造讲义未给出的信息，也不得用截图以外的推测代替实际结果。
+    vision_review_points:
+      - 截图总要求：必须是学生本人环境的电脑截图，终端截图需同时显示命令和对应输出，文字清晰可读，并能辨认本人虚拟机的用户名、主机名、IP 或学号姓名。出现手机拍摄屏幕的反光、摩尔纹或明显倾斜时判为不合格；截图中不得出现密码、私钥或访问令牌。同一任务允许合理拼图或裁剪无关区域，但不能裁掉命令、时间或关键结果。
+      - lab1_vmware_version.png：应能看到 VMware Workstation Pro 的 Help → About 页面，并能辨认完整版本号。只截主界面或安装向导、看不出版本号的判为不合格。窗口大小、语言界面与主题配色不扣分。
+      - lab1_ubuntu_version.png：应能看到 cat /etc/os-release 的输出（含 Ubuntu 24.04 与 LTS）、uname -m 的 x86_64，以及 sudo cat /var/log/installer/media-info 的介质版本。三项中缺一项时判为不完整并在反馈中指出缺哪一项，不直接判为不合格；三项全缺判为不合格。
+      - lab1_network.png：应能看到私有 IP 与默认路由的输出、ping IP 与 ping 域名的结果，以及 sudo apt update 成功且没有 Err、Failed。软件源用官方源或国内镜像站均可，不因未换源而判为不完整。所在网络禁止 ping 时，以 apt update 成功为主要证据，能看到成功下载且无 Err、Failed 即可通过。ping 与 apt update 两类证据缺任意一类时判为不完整；两类全缺判为不合格。
+      - lab1_resources.png：应能看到 nproc、free -h、lsblk 与 df -h / 中至少 nproc 与 free -h 的输出，并能辨认核心数、内存与虚磁盘容量。四项中缺一到两项时判为不完整并在反馈中指出，不直接判为不合格；完全看不到容量信息判为不合格。
+      - lab1_toolchain.png：应能看到软件包安装状态或 gcc、make、gdb、git、vim、ssh 各版本号输出中的至少三类，以及用 vim 编辑 hello.txt 的画面和 cat hello.txt 的输出。看不到 vim 编辑画面或文件内容输出时判为不合格；工具版本号只出现一两类时判为不完整，并在反馈中指出缺哪一类。文件内容中应能辨认本人学号姓名。
+      - 报告与截图的一致性：报告填写的版本号、IP、内存与磁盘容量应与截图方向一致。截图中的私网地址与报告填写的 IP 明显矛盾，或报告称工具链齐全但截图显示命令未找到时，应指出。报告数值与截图的取整方式不同（如 3.8Gi 与 4096MB）属于合理差异，不判为不合格。
