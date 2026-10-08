@@ -1,0 +1,174 @@
+version: 1
+
+# 操作系统课程学生名单：学号 ↔ GitHub 账号映射。
+# 学号键必须加引号；纯数字的 GitHub 账号名同样需要加引号。
+# 退课把 active 改成 false，不要删除记录；换账号只改 github 的值。
+students:
+  "2025333008":
+    name: 邢宸彰
+    github: Viclance-cz
+    active: true
+  "2025333011":
+    name: 牛梓豪
+    github: NIUZIHAO1
+    active: true
+  "2025333017":
+    name: 杨耀权
+    github: yyq-but
+    active: true
+  "2025333020":
+    name: 付杰
+    github: fujie-duo
+    active: true
+  "2025333021":
+    name: 龚佳佳
+    github: Gongjiajia-1
+    active: true
+  "2026333001":
+    name: 朱泽科
+    github: WINTERS075
+    active: true
+  "2026333002":
+    name: 黄子
+    github: huangziniubi
+    active: true
+  "2026333003":
+    name: 王万果
+    github: WWG620
+    active: true
+  "2026333004":
+    name: 姚宝健
+    github: yaowd
+    active: true
+  "2026333005":
+    name: 万里彬
+    github: WLB123
+    active: true
+  "2026333006":
+    name: 年江平
+    github: njp8442
+    active: true
+  "2026333007":
+    name: 薛彭辉
+    github: xiaohuihuipro
+    active: true
+  "2026333008":
+    name: 何绍鉴
+    github: hsj-0702
+    active: true
+  "2026333009":
+    name: 刘银柳
+    github: liuyinliu
+    active: true
+  "2026333010":
+    name: 龙一涵
+    github: Axunee
+    active: true
+  "2026333011":
+    name: 张志杰
+    github: zzj08
+    active: true
+  "2026333013":
+    name: 陈金蓉
+    github: cjr985211
+    active: true
+  "2026333014":
+    name: 杨蕊
+    github: yr409
+    active: true
+  "2026333016":
+    name: 王石
+    github: x314159X
+    active: true
+  "2026333017":
+    name: 秦刚
+    github: 2122384220-creator
+    active: true
+  "2026333018":
+    name: 孔为邦
+    github: kongwb413
+    active: true
+  "2026333019":
+    name: 陈旭
+    github: CCX620
+    active: true
+  "2026333022":
+    name: 彭承薇
+    github: STARTS121
+    active: true
+  "2026333023":
+    name: 王怡超
+    github: WYC124
+    active: true
+  "2026333024":
+    name: 文浪
+    github: wen158
+    active: true
+  "2026333025":
+    name: 张友芝
+    github: zhangyouzhijiami
+    active: true
+  "2026333026":
+    name: 杨靖且
+    github: yjq150
+    active: true
+  "2026333027":
+    name: 张东宇
+    github: YOLONB666
+    active: true
+  "2026333028":
+    name: 余安棋
+    github: YAQ620
+    active: true
+  "2026333029":
+    name: 孙建杰
+    github: sun920-2026
+    active: true
+  "2026333030":
+    name: 苏子技
+    github: suziji125
+    active: true
+  "2026333031":
+    name: 徐子阳
+    github: fvggbbb
+    active: true
+  "2026333033":
+    name: 王鈺翔
+    github: wangyuxiang080731
+    active: true
+  "2026333034":
+    name: 朱怡
+    github: zy1111468
+    active: true
+  "2026333035":
+    name: 冯靖
+    github: 09fj18
+    active: true
+  "2026333036":
+    name: 张厚银
+    github: zhanghouyin401907837
+    active: true
+  "2026333037":
+    name: 谌相呈
+    github: Clay-code992
+    active: true
+  "2026333038":
+    name: 吴依镁
+    github: bosiack
+    active: true
+  "2026333039":
+    name: 程文杰
+    github: C418-Frog
+    active: true
+  "2026333040":
+    name: 李海成
+    github: LHC766
+    active: true
+  "2026333021":
+    name: 曾哲超
+    github: zengzhechao
+    active: true
+  "2026333020":
+    name: 杨宵
+    github: yx-9264
+    active: true
