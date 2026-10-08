@@ -323,19 +323,19 @@ cat hello.txt
 
 | 验收项目 | 合格标准 | 你的结论 |
 | :--- | :--- | :--- |
-| VMware 版本 | VMware Workstation Pro 26H1 for Windows | |
-| Linux 版本 | Ubuntu 24.04 LTS Desktop amd64，安装介质为教师提供的 24.04.4 | |
-| 虚拟机联网 | 具有 IP 和默认路由，IP 联通与 DNS 解析正常 | |
-| 软件源 | `sudo apt update` 成功，没有 `Err` 或 `Failed`（使用官方源或国内镜像站均可） | |
-| CPU、内存、存储 | 至少 2 核、4GB、40GB，且与宿主机档位匹配 | |
-| C 开发工具链 | `gcc`、`make`、`gdb`、`git` 已安装并能输出版本信息（本次不编译程序） | |
-| vim | `vim --version` 显示完整版，且能用它创建并保存 `hello.txt` | |
-| OpenSSH Server | `openssh-server` 已安装，`ssh -V` 有版本信息，22 端口处于监听 | |
-| VMware Tools | 软件包已安装，`open-vm-tools` 为 active，窗口缩放分辨率自动适配 | |
+| VMware 版本 | VMware Workstation Pro 26H1 for Windows |VMware® Workstation Pro 26H1 |
+| Linux 版本 | Ubuntu 24.04 LTS Desktop amd64，安装介质为教师提供的 24.04.4 |Ubuntu 24.04 LTS Desktop amd64，安装介质为教师提供的 24.04.4 |
+| 虚拟机联网 | 具有 IP 和默认路由，IP 联通与 DNS 解析正常 |具有 IP 和默认路由，IP 联通与 DNS 解析正常 |
+| 软件源 | `sudo apt update` 成功，没有 `Err` 或 `Failed`（使用官方源或国内镜像站均可） |sudo apt update 成功，没有 Err 或 Failed（使用官方源或国内镜像站均可） |
+| CPU、内存、存储 | 至少 2 核、4GB、40GB，且与宿主机档位匹配 |至少 2 核、4GB、40GB，且与宿主机档位匹配 |
+| C 开发工具链 | `gcc`、`make`、`gdb`、`git` 已安装并能输出版本信息（本次不编译程序） |gcc、make、gdb、git 已安装并能输出版本信息（本次不编译程序） |
+| vim | `vim --version` 显示完整版，且能用它创建并保存 `hello.txt` |vim --version 显示完整版，且能用它创建并保存 hello.txt |
+| OpenSSH Server | `openssh-server` 已安装，`ssh -V` 有版本信息，22 端口处于监听 |openssh-server 已安装，ssh -V 有版本信息，22 端口处于监听 |
+| VMware Tools | 软件包已安装，`open-vm-tools` 为 active，窗口缩放分辨率自动适配 |软件包已安装，open-vm-tools 为 active，窗口缩放分辨率自动适配 |
 
 简要说明你遇到的问题、解决方法，以及当前环境是否可以继续完成后续实验：
 
-> 填写：
+> 填写：是
 
 ---
 
