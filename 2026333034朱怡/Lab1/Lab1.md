@@ -4,7 +4,7 @@
 2. 按需取消两个可选组件勾选，点击下一步
 3. 完成安装，启动VMware，关闭自动更新弹窗
 📷截图：VMware安装完成界面！
-![VMware安装完成界面](https://github.com/zy1111468/OperatingSystem/blob/main/2026333034%E6%9C%B1%E6%80%A1/Lab1/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE2026-10-07%20225504.png?raw=true)
+![VMware安装完成界面]([https://github.com/zy1111468/OperatingSystem/blob/main/2026333034%E6%9C%B1%E6%80%A1/Lab1/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE2026-10-07%20225504.png?raw=true)
 ## 二、新建Ubuntu虚拟机
 1. VMware主页点击【创建新的虚拟机】，典型安装
 2. 选择ISO镜像文件，选中Ubuntu镜像
