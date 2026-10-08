@@ -23,7 +23,7 @@
 6. 设置用户名、计算机名、登录密码
 7. 等待安装，结束后点击现在重启
 📷截图：安装类型页面、账号创建页面
-![安装类型页面、账号创建页面](https://github.com/zy1111468/OperatingSystem/blob/main/2026333034%E6%9C%B1%E6%80%A1/Lab1/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-10-07%20225504.png?raw=true)
+![安装类型页面、账号创建页面](https://github.com/zy1111468/OperatingSystem/blob/main/2026333034%E6%9C%B1%E6%80%A1/Lab1/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-10-07%20225504.png?raw=true[·](https://github.com/zy1111468/OperatingSystem/blob/main/2026333034%E6%9C%B1%E6%80%A1/Lab1/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-10-07%20225722.png?raw=true))
 ## 四、Ubuntu开机初始化
 1. 重启后输入密码登录桌面
 2. 数据收集弹窗：选择不发送
