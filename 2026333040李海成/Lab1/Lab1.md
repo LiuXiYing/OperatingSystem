@@ -299,7 +299,7 @@ cat hello.txt
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| VMware Tools 版本 | 未安装|
+| VMware Tools 版本 | open-vm-tools|
 | `open-vm-tools` 是否 active | 是|
 | 桌面分辨率是否能自动调整 |是 |
 | `gcc` 版本 | gcc (Ubuntu 13.3.0-24.04.1) 13.3.0 |
