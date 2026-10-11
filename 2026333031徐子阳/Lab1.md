@@ -24,10 +24,10 @@ VMware Workstation Pro 26H1 for Windows
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| 已安装的 VMware 完整版本号 | |
-| 是否为教师指定版本 | |
+| 已安装的 VMware 完整版本号 | 26.0.0.25388281|
+| 是否为教师指定版本 |是|
 
-![VMware 版本]()
+![VMware 版本](imgs/lab1_vmware_version.png)
 
 ---
 
@@ -35,9 +35,6 @@ VMware Workstation Pro 26H1 for Windows
 
 ### 第一步：查看当前系统版本
 
-```bash
-cat /etc/os-release
-```
 
 验收标准：`PRETTY_NAME` 中同时包含 `Ubuntu 24.04` 和 `LTS`。安装后执行过系统更新时，小版本可能高于 `24.04.4`，这属于正常现象。
 
@@ -61,10 +58,10 @@ sudo cat /var/log/installer/media-info
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| Ubuntu 当前完整版本 | |
-| 安装介质的版本 | |
-| 处理器架构 | |
-| 是否为教师提供的 Ubuntu 24.04.4 LTS Desktop amd64 | |
+| Ubuntu 当前完整版本 | 24.04.4 LTS（Noble Numbat）|
+| 安装介质的版本 | x86_64|
+| 处理器架构 |Ubuntu 24.04.4 LTS "Noble Numbat" - Release amd64 (20260210)|
+| 是否为教师提供的 Ubuntu 24.04.4 LTS Desktop amd64 | 是|
 
 ![Ubuntu 版本](imgs/lab1_ubuntu_version.png)
 
@@ -122,13 +119,23 @@ sudo apt update
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| 虚拟机 IP 地址 | |
-| 网络模式 | NAT / 其他： |
-| ping `223.5.5.5` 是否成功 | |
-| ping `mirrors.tuna.tsinghua.edu.cn` 是否成功 | |
+| 虚拟机 IP 地址 | efault via 192.168.112.2 dev ens33 proto dhcp src 192.168.112.128 metric 100 
+192.168.112.0/24 dev ens33 proto kernel scope link src 192.168.112.128 metric 100 |
+| 网络模式 | NAT / 其他： |PING 223.5.5.5 (223.5.5.5) 56(84) bytes of data.
+64 bytes from 223.5.5.5: icmp_seq=1 ttl=128 time=31.9 ms
+64 bytes from 223.5.5.5: icmp_seq=2 ttl=128 time=23.4 ms
+64 bytes from 223.5.5.5: icmp_seq=3 ttl=128 time=30.6 ms
+64 bytes from 223.5.5.5: icmp_seq=4 ttl=128 time=28.0 ms
+
+--- 223.5.5.5 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3006ms
+rtt min/avg/max/mdev = 23.380/28.468/31.861/3.247 ms
+
+| ping `223.5.5.5` 是否成功 |是 |
+| ping `mirrors.tuna.tsinghua.edu.cn` 是否成功 |是 |
 | 软件源（官方源 / 已换的镜像站） | |
-| `sudo apt update` 是否成功 | |
-| 联网是否合格 | |
+| `sudo apt update` 是否成功 是| |
+| 联网是否合格 | 是|
 
 ![虚拟机联网](imgs/lab1_network.png)
 
@@ -174,11 +181,37 @@ df -h /
 | :--- | :--- |
 | 宿主机内存 / CPU 核心 / 存放盘剩余空间 | |
 | 选择的配置档位 | 最低可用档 / 课程推荐档 / 宽裕档 |
-| 虚拟 CPU 核心数 | |
-| 虚拟内存 | |
-| 虚磁盘容量 | |
-| 根分区可用空间 | |
-| 资源分配是否符合对应档位 | |
+| 虚拟 CPU 核心数 |2 |
+| 虚拟内存 |               total        used        free      shared  buff/cache   available
+Mem:           5.7Gi       1.3Gi       2.2Gi        36Mi       2.5Gi       4.4Gi
+置換：         3.5Gi          0B       3.5Gi
+|
+| 虚磁盘容量 |NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+fd0      2:0    1     4K  0 disk 
+loop0    7:0    0     4K  1 loop /snap/bare/5
+loop1    7:1    0    74M  1 loop /snap/core22/2292
+loop2    7:2    0    74M  1 loop /snap/core22/2955
+loop3    7:3    0  66.8M  1 loop /snap/core24/2124
+loop4    7:4    0 251.7M  1 loop /snap/firefox/7766
+loop5    7:5    0  18.5M  1 loop /snap/firmware-updater/210
+loop6    7:6    0  91.7M  1 loop /snap/gtk-common-themes/1535
+loop7    7:7    0   402M  1 loop /snap/mesa-2404/1839
+loop8    7:8    0 531.4M  1 loop /snap/gnome-42-2204/247
+loop9    7:9    0  48.1M  1 loop /snap/snapd/25935
+loop10   7:10   0 615.3M  1 loop /snap/gnome-46-2404/168
+loop11   7:11   0  10.8M  1 loop /snap/snap-store/1270
+loop12   7:12   0  44.7M  1 loop /snap/snapd/28254
+loop13   7:13   0   828K  1 loop /snap/snapd-desktop-integration/391
+loop14   7:14   0   576K  1 loop /snap/snapd-desktop-integration/343
+loop15   7:15   0  11.8M  1 loop /snap/snap-store/1427
+sda      8:0    0    20G  0 disk 
+├─sda1   8:1    0     1M  0 part 
+└─sda2   8:2    0    20G  0 part /
+sr0     11:0    1  97.8M  0 rom  /media/x/CDROM2
+sr1     11:1    1  1024M  0 rom  
+| 根分区可用空间 | 檔案系統        容量  已用  可用 已用% 掛載點
+/dev/sda2        20G   12G  7.0G   63% /|
+| 资源分配是否符合对应档位 |是 |
 
 ![虚机资源](imgs/lab1_resources.png)
 
@@ -300,17 +333,26 @@ cat hello.txt
 | 项目 | 你的填写内容 |
 | :--- | :--- |
 | VMware Tools 版本 | |
-| `open-vm-tools` 是否 active | |
-| 桌面分辨率是否能自动调整 | |
-| `gcc` 版本 | |
-| `make` 版本 | |
-| `gdb` 版本 | |
-| `git` 版本 | |
-| `ssh -V` 的版本信息 | |
-| 22 端口是否处于监听 | |
-| `vim --version` 的版本信息 | |
+| `open-vm-tools` 是否 active |是 |
+| 桌面分辨率是否能自动调整 |是 |
+| `gcc` 版本 |gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. |
+| `make` 版本 |NU Make 4.3
+為 x86_64-pc-linux-gnu 編譯
+Copyright (C) 1988-2020 Free Software Foundation, Inc.
+授權條款：GPLv3+：GNU 通用公共授權條款第 3 版或更新版本<http://gnu.org/licenses/gpl.html>。 |
+| `gdb` 版本 |GNU gdb (Ubuntu 15.1-1ubuntu1~24.04.1) 15.1 |
+| `git` 版本 |git version 2.43.0 |
+| `ssh -V` 的版本信息 |OpenSSH_9.6p1 Ubuntu-3ubuntu13.19, OpenSSL 3.0.13 30 Jan 2024 |
+| 22 端口是否处于监听 |是 |
+| `vim --version` 的版本信息 | VIM - Vi IMproved 9.1 (2024 Jan 02, compiled Aug 24 2026 22:13:04)
+引入修正: 1-16, 647, 678, 697
+修改者為team+vim@tracker.debian.org
+編譯者:team+vim@tracker.debian.org|
 | `cat hello.txt` 的输出 | |
-| 软件是否全部安装合格 | |
+| 软件是否全部安装合格 |是 |
 
 ![软件安装与 vim 写文件](imgs/lab1_toolchain.png)
 

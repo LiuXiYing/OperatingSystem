@@ -27,7 +27,7 @@ VMware Workstation Pro 26H1 for Windows
 | 已安装的 VMware 完整版本号 | |
 | 是否为教师指定版本 | |
 
-![VMware 版本]()
+![VMware 版本](imgs/lab1_vmware_version.png)
 
 ---
 
