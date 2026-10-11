@@ -24,8 +24,8 @@ VMware Workstation Pro 26H1 for Windows
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| 已安装的 VMware 完整版本号 | |
-| 是否为教师指定版本 | |
+| 已安装的 VMware 完整版本号 |VMware® Workstation Pro 26H126.0.0.25388281 |
+| 是否为教师指定版本 |是 |
 
 ![VMware 版本](imgs/lab1_vmware_version.png)
 
@@ -61,10 +61,10 @@ sudo cat /var/log/installer/media-info
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| Ubuntu 当前完整版本 | |
-| 安装介质的版本 | |
-| 处理器架构 | |
-| 是否为教师提供的 Ubuntu 24.04.4 LTS Desktop amd64 | |
+| Ubuntu 当前完整版本 |Ubuntu 24.04.4 LTS |
+| 安装介质的版本 |24.04.4 LTS (Noble Numbat) |
+| 处理器架构 |x86_64 |
+| 是否为教师提供的 Ubuntu 24.04.4 LTS Desktop amd64 |是 |
 
 ![Ubuntu 版本](imgs/lab1_ubuntu_version.png)
 
@@ -122,13 +122,13 @@ sudo apt update
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| 虚拟机 IP 地址 | |
+| 虚拟机 IP 地址 |192.168.2 |
 | 网络模式 | NAT / 其他： |
 | ping `223.5.5.5` 是否成功 | |
-| ping `mirrors.tuna.tsinghua.edu.cn` 是否成功 | |
+| ping `mirrors.tuna.tsinghua.edu.cn` 是否成功 |是 |
 | 软件源（官方源 / 已换的镜像站） | |
-| `sudo apt update` 是否成功 | |
-| 联网是否合格 | |
+| `sudo apt update` 是否成功 |是 |
+| 联网是否合格 |是 |
 
 ![虚拟机联网](imgs/lab1_network.png)
 
@@ -172,13 +172,13 @@ df -h /
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| 宿主机内存 / CPU 核心 / 存放盘剩余空间 | |
+| 宿主机内存 / CPU 核心 / 存放盘剩余空间 |5.7/2/4.5 |
 | 选择的配置档位 | 最低可用档 / 课程推荐档 / 宽裕档 |
-| 虚拟 CPU 核心数 | |
-| 虚拟内存 | |
-| 虚磁盘容量 | |
-| 根分区可用空间 | |
-| 资源分配是否符合对应档位 | |
+| 虚拟 CPU 核心数 |2 |
+| 虚拟内存 | 6GB|
+| 虚磁盘容量 |40GB |
+| 根分区可用空间 |26GB |
+| 资源分配是否符合对应档位 |是 |
 
 ![虚机资源](imgs/lab1_resources.png)
 
@@ -299,18 +299,19 @@ cat hello.txt
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| VMware Tools 版本 | |
-| `open-vm-tools` 是否 active | |
-| 桌面分辨率是否能自动调整 | |
-| `gcc` 版本 | |
-| `make` 版本 | |
-| `gdb` 版本 | |
-| `git` 版本 | |
-| `ssh -V` 的版本信息 | |
-| 22 端口是否处于监听 | |
-| `vim --version` 的版本信息 | |
-| `cat hello.txt` 的输出 | |
-| 软件是否全部安装合格 | |
+| VMware Tools 版本 |13.0.10.0 |
+| `open-vm-tools` 是否 active |是 |
+| 桌面分辨率是否能自动调整 |是 |
+| `gcc` 版本 |13.3.0 |
+| `make` 版本 |GNU Make 4.3 |
+| `gdb` 版本 |Ubuntu 15.0.50.20240403-0ubuntu1 |
+| `git` 版本 |2.43.0 |
+| `ssh -V` 的版本信息 |OpenSSH_9.6p1 Ubuntu-3ubuntu13.19, OpenSSL 3.0.13 30 Jan 2024 |
+| 22 端口是否处于监听 |是 |
+| `vim --version` 的版本信息 |VIM - Vi IMproved 9.1 |
+| `cat hello.txt` 的输出 |操作系统 Lab1 环境验收
+学号：2026333002 |
+| 软件是否全部安装合格 |是 |
 
 ![软件安装与 vim 写文件](imgs/lab1_toolchain.png)
 
