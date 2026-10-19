@@ -58,7 +58,7 @@ sudo cat /var/log/installer/media-info
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| Ubuntu 当前完整版本 |Ubuntu 24.04.4 LTS|
+| Ubuntu 当前完整版本 |PRETTY_NAME="Ubuntu 22.04.5 LTS"
 | 安装介质的版本 |Ubuntu 24.04.4 LTS|
 | 处理器架构 | x86_64|
 | 是否为教师提供的 Ubuntu 24.04.4 LTS Desktop amd64 | 是|
@@ -324,7 +324,7 @@ cat hello.txt
 | Linux 版本 | Ubuntu 24.04 LTS Desktop amd64，安装介质为教师提供的 24.04.4 | |
 | 虚拟机联网 | 具有 IP 和默认路由，IP 联通与 DNS 解析正常 | |
 | 软件源 | `sudo apt update` 成功，没有 `Err` 或 `Failed`（使用官方源或国内镜像站均可） | |
-| CPU、内存、存储 | 至少 2 核、4GB、40GB，且与宿主机档位匹配 | |
+| CPU、内存、存储 | 至少 2 核、4GB、40GB，且与宿主机档位匹配 |符合要求 |
 | C 开发工具链 | `gcc`、`make`、`gdb`、`git` 已安装并能输出版本信息（本次不编译程序） | |
 | vim | `vim --version` 显示完整版，且能用它创建并保存 `hello.txt` | |
 | OpenSSH Server | `openssh-server` 已安装，`ssh -V` 有版本信息，22 端口处于监听 | |

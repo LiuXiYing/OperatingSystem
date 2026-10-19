@@ -324,7 +324,7 @@ cat hello.txt
 
 | 验收项目 | 合格标准 | 你的结论 |
 | :--- | :--- | :--- |
-| VMware 版本 | VMware Workstation Pro 26H1 for Windows | |
+| VMware 版本 | VMware Workstation Pro 26H1 for Windows |符合要求 |
 | Linux 版本 | Ubuntu 24.04 LTS Desktop amd64，安装介质为教师提供的 24.04.4 | |
 | 虚拟机联网 | 具有 IP 和默认路由，IP 联通与 DNS 解析正常 | |
 | 软件源 | `sudo apt update` 成功，没有 `Err` 或 `Failed`（使用官方源或国内镜像站均可） | |
