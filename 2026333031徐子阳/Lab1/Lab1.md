@@ -27,7 +27,7 @@ VMware Workstation Pro 26H1 for Windows
 | 已安装的 VMware 完整版本号 | 26.0.0.25388281|
 | 是否为教师指定版本 |是|
 
-![VMware 版本](imgs/lab1_vmware_version.png)
+![VMware 版本](imgs\)
 
 ---
 
@@ -119,7 +119,7 @@ sudo apt update
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| 虚拟机 IP 地址 | 192.168.112.0/24  |
+| 虚拟机 IP 地址 | 192.168.112.128 |
 | 网络模式 | NAT / 其他： | 
 | ping `223.5.5.5` 是否成功 |是 |
 | ping `mirrors.tuna.tsinghua.edu.cn` 是否成功 |是 |
@@ -173,7 +173,7 @@ df -h /
 | 选择的配置档位 | 最低可用档 / 课程推荐档 / 宽裕档 |
 | 虚拟 CPU 核心数 |2 |
 | 虚拟内存 |  6GB              
-| 虚磁盘容量 |   5.7Gi |
+| 虚磁盘容量 |   40Gi |
 | 根分区可用空间 |  7GB
 | 资源分配是否符合对应档位 |是 |
 
@@ -347,7 +347,7 @@ cat hello.txt
 
 | 截图内容 | 文件名 |
 | :--- | :--- |
-| VMware Workstation About 页面，能看到完整版本 | `imgs/lab1_vmware_version.png` |
+| VMware Workstation About 页面，能看到完整版本 | `imgs\` |
 | Ubuntu 当前版本、安装介质版本和 `x86_64` 架构 | `imgs/lab1_ubuntu_version.png` |
 | IP、默认路由、IP ping、域名 ping 和 `apt update` 成功 | `imgs/lab1_network.png` |
 | `nproc`、`free -h`、`lsblk`、`df -h /` 输出 | `imgs/lab1_resources.png` |
