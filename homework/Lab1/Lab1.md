@@ -24,12 +24,12 @@ VMware Workstation Pro 26H1 for Windows
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| 已安装的 VMware 完整版本号 | |
-| 是否为教师指定版本 | |
+| 已安装的 VMware 完整版本号 |VMware® Workstation Pro 26H1 |
+| 是否为教师指定版本 |是 |
 
 ![VMware 版本](imgs/lab1_vmware_version.png)
 
----
+---![alt text](<屏幕截图 2026-10-19 083947.png>)
 
 ## 任务二：检查 Ubuntu 版本
 
@@ -37,7 +37,7 @@ VMware Workstation Pro 26H1 for Windows
 
 ```bash
 cat /etc/os-release
-```
+```Ubuntu 24.04.4 LTS
 
 验收标准：`PRETTY_NAME` 中同时包含 `Ubuntu 24.04` 和 `LTS`。安装后执行过系统更新时，小版本可能高于 `24.04.4`，这属于正常现象。
 
@@ -45,7 +45,7 @@ cat /etc/os-release
 
 ```bash
 uname -m
-```
+```x86_64
 
 验收标准：输出为 `x86_64`，对应 amd64 安装镜像。
 
@@ -53,7 +53,7 @@ uname -m
 
 ```bash
 sudo cat /var/log/installer/media-info
-```
+```Ubuntu 24.04.4 LTS
 
 验收标准：输出中包含 `Ubuntu 24.04.4 LTS`，说明安装时使用的是教师提供的 24.04.4 镜像。
 
@@ -61,14 +61,14 @@ sudo cat /var/log/installer/media-info
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| Ubuntu 当前完整版本 | |
-| 安装介质的版本 | |
-| 处理器架构 | |
-| 是否为教师提供的 Ubuntu 24.04.4 LTS Desktop amd64 | |
+| Ubuntu 当前完整版本 |24.04.4 |
+| 安装介质的版本 |24.04.4 |
+| 处理器架构 |x86_64|
+| 是否为教师提供的 Ubuntu 24.04.4 LTS Desktop amd64 |是 |
 
 ![Ubuntu 版本](imgs/lab1_ubuntu_version.png)
 
----
+---24.04，4
 
 ## 任务三：检查虚拟机联网
 
@@ -76,7 +76,7 @@ sudo cat /var/log/installer/media-info
 
 ```bash
 hostname -I
-```
+```192.168.132.128
 
 期望输出一个私有 IP 地址，通常以 `192.168`、`172` 或 `10` 开头。
 
@@ -84,7 +84,7 @@ hostname -I
 
 ```bash
 ip route
-```
+```![alt text](<屏幕截图 2026-10-19 092323.png>)
 
 期望能看到一行包含 `default via` 的默认路由，说明虚拟机知道该把外网流量发给哪个网关。
 
@@ -92,7 +92,7 @@ ip route
 
 ```bash
 ping -c 4 223.5.5.5
-```
+```![alt text](<屏幕截图 2026-10-19 092605.png>)
 
 成功说明虚拟机可以通过 NAT 访问外部网络。
 
@@ -100,7 +100,7 @@ ping -c 4 223.5.5.5
 
 ```bash
 ping -c 4 mirrors.tuna.tsinghua.edu.cn
-```
+```![alt text](<屏幕截图 2026-10-19 092959.png>)
 
 成功说明 DNS 解析和域名网络访问正常。
 
