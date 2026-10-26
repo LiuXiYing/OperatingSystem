@@ -347,7 +347,7 @@ cat hello.txt
 
 | 截图内容 | 文件名 |
 | :--- | :--- |
-| VMware Workstation About 页面，能看到完整版本 | `imgs\` |
+| VMware Workstation About 页面，能看到完整版本 | `imgs/` |
 | Ubuntu 当前版本、安装介质版本和 `x86_64` 架构 | `imgs/lab1_ubuntu_version.png` |
 | IP、默认路由、IP ping、域名 ping 和 `apt update` 成功 | `imgs/lab1_network.png` |
 | `nproc`、`free -h`、`lsblk`、`df -h /` 输出 | `imgs/lab1_resources.png` |
