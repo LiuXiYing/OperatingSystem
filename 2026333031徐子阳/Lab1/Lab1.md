@@ -312,7 +312,7 @@ cat hello.txt
 本文件由本人在 Ubuntu 24.04 虚拟机中使用 vim 创建并保存 |
 | 软件是否全部安装合格 |是 |
 
- [软件安装与 vim 写文件]( imgs/lab1_toolchain.png)
+ ![软件安装与 vim 写文件](imgs/lab1_toolchain.png)
 
 ---
 
