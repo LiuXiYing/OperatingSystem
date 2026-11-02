@@ -368,7 +368,7 @@ III. 增大交换区 (swap)
 ```text
 学号姓名/
 └── Lab5/
-    ├── Lab5.mdS
+    ├── Lab5.md
     └── imgs/
         └── 2016_q28_stem1.png
 ```
