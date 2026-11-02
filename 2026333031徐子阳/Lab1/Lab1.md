@@ -27,7 +27,7 @@ VMware Workstation Pro 26H1 for Windows
 | 已安装的 VMware 完整版本号 | VMware Workstation Pro 26.0.0.25388281|
 | 是否为教师指定版本 |是|
 
-![VMware 版本](imgs/lab1_vmware_version.png)
+![VMware版本截图](imgs/lab1_vmware_version.png)
 
 ---
 
@@ -169,12 +169,12 @@ df -h /
 
 | 项目 | 你的填写内容 |
 | :--- | :--- |
-| 宿主机内存 / CPU 核心 / 存放盘剩余空间 |32GB/8/72|
+| 宿主机内存 / CPU 核心 / 存放盘剩余空间 |32GB/8核/685GB|
 | 选择的配置档位 | 最低可用档 / 课程推荐档 / 宽裕档 |
 | 虚拟 CPU 核心数 |2 |
 | 虚拟内存 |  6GB              
-| 虚磁盘容量 |   40Gi |
-| 根分区可用空间 |  7GB
+| 虚磁盘容量 |  20Gi |
+| 根分区可用空间 | 3.9GB
 | 资源分配是否符合对应档位 |是 |
 
 ![虚机资源](imgs/lab1_resources.png)
