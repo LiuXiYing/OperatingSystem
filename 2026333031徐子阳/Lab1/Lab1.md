@@ -126,7 +126,7 @@ sudo apt update
 | 软件源（官方源 / 已换的镜像站） |官方源 |
 | `sudo apt update` 是否成功 是| |
 | 联网是否合格 | 是|
-默认路由行：default via 192.168.182.2 dev ens33 proto dhcp src 192.168.182.130 metric 100
+默认路由行：default via 192.168.112.2 dev ens33 proto dhcp src 192.168.112.128 metric 100
 ![虚拟机联网](imgs/lab1_network.png)
 
 ---
@@ -173,7 +173,7 @@ df -h /
 | 选择的配置档位 | 最低可用档 / 课程推荐档 / 宽裕档 |
 | 虚拟 CPU 核心数 |2 |
 | 虚拟内存 |  6GB              
-| 虚磁盘容量 |  20Gi |
+| 虚磁盘容量 |  40Gi |
 | 根分区可用空间 | 3.9GB
 | 资源分配是否符合对应档位 |是 |
 
