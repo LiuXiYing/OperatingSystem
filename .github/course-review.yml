@@ -2,6 +2,7 @@ version: 1
 
 course:
   name: 操作系统
+  id: operating-system
   timezone: Asia/Shanghai
   title_template: "[{student_id}{student_name}]{assignment_id}作业提交"
   submission_path_template: "{student_id}{student_name}/{assignment_id}"
@@ -10,17 +11,46 @@ course:
 features:
   auto_merge: true
   comment_review: true
-  close_late_pr: true
+  close_late_pr: false
   ai_review: true
   ai_feedback: true
   ocr_review: false
   vision_review: true
   metrics: true
+  grading: true
 
 defaults:
   min_nonempty_lines: 10
   allow_extra_files: false
   late_close_after_days: 7
+
+# 迟交不再阻止合并，只影响成绩上限（详见 course-pr-reviewer README）。
+# 制度上线前已发布的作业标注 legacy：不扣分、不虚构分数；新作业标注 tiered。
+grading:
+  storage:
+    branch: grades
+    schema_version: 1
+    write_receipts: true
+    export_on_finalize: true
+  policy_version: 2026-fall-v1
+  defaults:
+    max_points: "10.00"
+    legacy:
+      record_completion: true
+      fixed_points: null
+    tiered:
+      grace:
+        enabled: true
+        hours: 48
+        require_substantive_snapshot: true
+      bands:
+        - { max_late_hours: 0, cap_percent: 100 }
+        - { max_late_hours: 48, cap_percent: 90 }
+        - { max_late_hours: 168, cap_percent: 75 }
+        - { max_late_hours: 336, cap_percent: 60 }
+        - { max_late_hours: 672, cap_percent: 40 }
+        - { max_late_hours: null, cap_percent: 20 }
+      after_final_accept: reject_merge
 
 ai:
   providers:
@@ -70,6 +100,8 @@ vision:
 assignments:
   Lab1:
     deadline: "2026-10-12T21:59:59+08:00"
+    grading:
+      mode: legacy
     report_template: homework/Lab1/Lab1.md
     required_files:
       - Lab1.md
@@ -103,6 +135,8 @@ assignments:
       - 报告与截图的一致性：报告填写的版本号、IP、内存与磁盘容量应与截图方向一致。截图中的私网地址与报告填写的 IP 明显矛盾，或报告称工具链齐全但截图显示命令未找到时，应指出。报告数值与截图的取整方式不同（如 3.8Gi 与 4096MB）属于合理差异，不判为不合格。
   Lab2:
     deadline: "2026-10-19T23:59:59+08:00"
+    grading:
+      mode: legacy
     report_template: homework/Lab2/Lab2.md
     required_files:
       - Lab2.md
@@ -135,6 +169,8 @@ assignments:
       - 报告与截图的一致性：报告填写的证据记录、字节数应与截图方向一致。报告的 write、read 记录在截图中找不到对应行时，应指出。字节数、时间与行数的细微差异属于合理差异，不判为不合格。
   Lab3:
     deadline: "2026-10-26T23:59:59+08:00"
+    grading:
+      mode: legacy
     report_template: homework/Lab3/Lab3.md
     required_files:
       - Lab3.md
@@ -169,6 +205,8 @@ assignments:
       - 报告与截图的一致性：报告填写的PID、PPID应与截图方向一致；截图ps结果中的数字与报告表格明显矛盾、或family子行parent与父完成行pid在报告与截图对应不上时应指出。数字显示格式、换行差异属于合理差异，不判为不合格。
   Lab4:
     deadline: "2026-11-02T23:59:59+08:00"
+    grading:
+      mode: legacy
     report_template: homework/Lab4/Lab4.md
     required_files:
       - Lab4.md
@@ -204,6 +242,8 @@ assignments:
       - 报告与截图的一致性：报告填写的 PID、完整地址、父子 value 和结束状态应与截图方向一致；同一次运行中父子地址数值应相同，报告中的地址应落在截图抄录的 [stack] 区间内。截图中的 PID、地址与报告明显矛盾，或把不同次运行的父子输出拼在一起时，应指出。地址显示格式（有无 0x）、换行与截图形状的细微差异属于合理差异，不判为不合格。
   Lab5:
     deadline: "2026-11-09T23:59:59+08:00"
+    grading:
+      mode: legacy
     min_nonempty_lines: 5
     allow_extra_files: false
     vision_review: false
@@ -227,6 +267,8 @@ assignments:
       - 判定边界：本文本阶段只检查文件完整性与作答完整性，即每题是否填写了答案，不判断所选选项是否正确，不核对、不解释正确答案，也不因答案分布、与他人相同或与他人不同而判为不合格；内容正确性将在期末统一检测。
   Lab6:
     deadline: "2026-11-16T23:59:59+08:00"
+    grading:
+      mode: legacy
     report_template: homework/Lab6/Lab6.md
     required_files:
       - Lab6.md
