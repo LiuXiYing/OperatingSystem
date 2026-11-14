@@ -63,6 +63,7 @@ operating-system,2026333038,bosiack,Lab2,legacy,0,BACKFILL,2026-10-19T23:59:59+0
 operating-system,2026333039,C418-Frog,Lab2,legacy,0,BACKFILL,2026-10-19T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
 operating-system,2026333040,LHC766,Lab2,legacy,0,BACKFILL,2026-10-19T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
 operating-system,2025333008,Viclance-cz,Lab3,legacy,0,BACKFILL,2026-10-26T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
+operating-system,2025333020,fujie-duo,Lab3,legacy,264,PASS,2026-10-26T23:59:59+08:00,2026-11-13T18:26:11+08:00,1535172,False,,,,FINALIZED,2026-fall-v1
 operating-system,2026333001,WINTERS075,Lab3,legacy,0,BACKFILL,2026-10-26T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
 operating-system,2026333002,huangziniubi,Lab3,legacy,0,BACKFILL,2026-10-26T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
 operating-system,2026333004,yaowd,Lab3,legacy,0,BACKFILL,2026-10-26T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
@@ -127,6 +128,7 @@ operating-system,2026333038,bosiack,Lab4,legacy,0,BACKFILL,2026-11-02T23:59:59+0
 operating-system,2026333039,C418-Frog,Lab4,legacy,0,BACKFILL,2026-11-02T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
 operating-system,2026333040,LHC766,Lab4,legacy,0,BACKFILL,2026-11-02T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
 operating-system,2025333008,Viclance-cz,Lab5,legacy,0,BACKFILL,2026-11-09T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
+operating-system,2025333020,fujie-duo,Lab5,legacy,300,PASS,2026-11-09T23:59:59+08:00,2026-11-13T19:38:55+08:00,329936,False,,,,FINALIZED,2026-fall-v1
 operating-system,2026333003,WWG620,Lab5,legacy,0,BACKFILL,2026-11-09T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
 operating-system,2026333005,wlb323,Lab5,legacy,0,BACKFILL,2026-11-09T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
 operating-system,2026333007,xiaohuihuipro,Lab5,legacy,0,BACKFILL,2026-11-09T23:59:59+08:00,,0,False,,,,FINALIZED,2026-fall-v1
