@@ -2,6 +2,7 @@ version: 1
 
 course:
   name: 操作系统
+  id: operating-system
   timezone: Asia/Shanghai
   title_template: "[{student_id}{student_name}]{assignment_id}作业提交"
   submission_path_template: "{student_id}{student_name}/{assignment_id}"
@@ -10,17 +11,48 @@ course:
 features:
   auto_merge: true
   comment_review: true
-  close_late_pr: true
+  close_late_pr: false
   ai_review: true
   ai_feedback: true
   ocr_review: false
   vision_review: true
   metrics: true
+  grading: true
 
 defaults:
   min_nonempty_lines: 10
   allow_extra_files: false
   late_close_after_days: 7
+
+# 迟交不再阻止合并，只影响成绩上限（详见 course-pr-reviewer README）。
+# 制度上线前已发布的作业标注 legacy：不扣分、不虚构分数；新作业标注 tiered。
+grading:
+  storage:
+    branch: grades
+    schema_version: 1
+    write_receipts: true
+    # 合并后不在审核任务里重建报表：一次重建要读几百份收据，会吃掉
+    # GITHUB_TOKEN 的每小时额度。交给每日 grade-reconcile 或手工 grade export。
+    export_on_finalize: false
+  policy_version: 2026-fall-v1
+  defaults:
+    max_points: "10.00"
+    legacy:
+      record_completion: true
+      fixed_points: null
+    tiered:
+      grace:
+        enabled: true
+        hours: 48
+        require_substantive_snapshot: true
+      bands:
+        - { max_late_hours: 0, cap_percent: 100 }
+        - { max_late_hours: 48, cap_percent: 90 }
+        - { max_late_hours: 168, cap_percent: 75 }
+        - { max_late_hours: 336, cap_percent: 60 }
+        - { max_late_hours: 672, cap_percent: 40 }
+        - { max_late_hours: null, cap_percent: 20 }
+      after_final_accept: reject_merge
 
 ai:
   providers:
@@ -70,6 +102,8 @@ vision:
 assignments:
   Lab1:
     deadline: "2026-10-12T21:59:59+08:00"
+    grading:
+      mode: legacy
     report_template: homework/Lab1/Lab1.md
     required_files:
       - Lab1.md
@@ -103,6 +137,8 @@ assignments:
       - 报告与截图的一致性：报告填写的版本号、IP、内存与磁盘容量应与截图方向一致。截图中的私网地址与报告填写的 IP 明显矛盾，或报告称工具链齐全但截图显示命令未找到时，应指出。报告数值与截图的取整方式不同（如 3.8Gi 与 4096MB）属于合理差异，不判为不合格。
   Lab2:
     deadline: "2026-10-19T23:59:59+08:00"
+    grading:
+      mode: legacy
     report_template: homework/Lab2/Lab2.md
     required_files:
       - Lab2.md
@@ -135,6 +171,8 @@ assignments:
       - 报告与截图的一致性：报告填写的证据记录、字节数应与截图方向一致。报告的 write、read 记录在截图中找不到对应行时，应指出。字节数、时间与行数的细微差异属于合理差异，不判为不合格。
   Lab3:
     deadline: "2026-10-26T23:59:59+08:00"
+    grading:
+      mode: legacy
     report_template: homework/Lab3/Lab3.md
     required_files:
       - Lab3.md
@@ -169,6 +207,8 @@ assignments:
       - 报告与截图的一致性：报告填写的PID、PPID应与截图方向一致；截图ps结果中的数字与报告表格明显矛盾、或family子行parent与父完成行pid在报告与截图对应不上时应指出。数字显示格式、换行差异属于合理差异，不判为不合格。
   Lab4:
     deadline: "2026-11-02T23:59:59+08:00"
+    grading:
+      mode: legacy
     report_template: homework/Lab4/Lab4.md
     required_files:
       - Lab4.md
@@ -202,3 +242,57 @@ assignments:
       - lab4_pointer.png：应能看到 gcc pointer.c -o pointer 的编译命令、echo $? 的编译结束状态、./pointer 的运行命令与 before=10、after=20 两行输出，以及运行后的 echo $?（通常为 0）。看不到编译命令、运行命令或 before/after 任意一行时判为不合格；仅缺少编译结束状态或运行结束状态中的一项时判为不完整并在反馈中指出。
       - lab4_memory_maps.png：应能看到同一次运行的子进程行（child pid=...、address=...、value=20）、父进程行（parent pid=...、address=...、value=10）、结束状态（echo $?，通常为 0），以及 B 终端在子进程存活时执行的 maps 查询：ps 命令与结果、grep '/memory$' 得到的带 x 代码映射、grep -F '[stack]' 得到的栈映射；有 [heap] 记录则一并保留，本次出现但未截入时按不完整提醒，未出现不扣分。看不到子进程行或看不到任何 maps 查询结果时判为不合格；缺父进程行、代码映射与 [stack] 映射缺一至两类，或 ps 结果、结束状态缺少一至两项时判为不完整并指出。不得因 [heap] 未出现而判为不完整。
       - 报告与截图的一致性：报告填写的 PID、完整地址、父子 value 和结束状态应与截图方向一致；同一次运行中父子地址数值应相同，报告中的地址应落在截图抄录的 [stack] 区间内。截图中的 PID、地址与报告明显矛盾，或把不同次运行的父子输出拼在一起时，应指出。地址显示格式（有无 0x）、换行与截图形状的细微差异属于合理差异，不判为不合格。
+  Lab5:
+    deadline: "2026-11-09T23:59:59+08:00"
+    grading:
+      mode: legacy
+    min_nonempty_lines: 5
+    allow_extra_files: false
+    vision_review: false
+    ocr_review: false
+    report_template: homework/Lab5/Lab5.md
+    # 纯书面作业，不涉及截图，只做文本层面的完整性与作答检查；行数与 Markdown 符号数量预检仅对 Lab5 启用。
+    template_metrics:
+      enabled: true
+      report_file: Lab5.md
+      characters: ['#', '-', '*', '`', '|', '>']
+      max_file_bytes: 200000
+    required_files:
+      - Lab5.md
+      - imgs/2016_q28_stem1.png
+    review_points:
+      - 审核范围：本次为纯书面作业，只提交 Lab5.md 和 imgs 目录下的 1 张题图，共 2 个文件，没有程序、没有运行截图；不得因缺少源码、可执行文件、终端截图、程序输出，或 imgs 目录中缺少其他图片而判为不完整。题目、选项、作答说明和分组表须完整保留，模板数量预检通过只说明没有删减模板，不能代替对作答完整性的审核。
+      - 题图：imgs 目录中的 2016_q28_stem1.png 必须与 homework/Lab5/imgs/ 中的同名文件逐一对应，不得修改、重命名、替换或删除；Lab5.md 中该图片的引用路径必须保持 imgs/ 前缀不变。这张图用于题 23（段表）。缺少该题图、改动引用路径，或把题图换成自己手抄的截图，判为不完整。
+      - 题目结构：Lab5.md 必须保留作业模板的完整结构，题 1 到题 30 共 30 道单项选择题，按题型分为五组（题 1～8 操作系统概述与系统调用、题 9～14 进程状态与上下文切换、题 15～20 处理机调度、题 21～24 地址空间与分段、题 25～30 分页与地址转换），每题 4 个选项，全卷共 120 个选项；不得删除、合并、新增题目或选项，不得改写题面，不得调整选项顺序，不得把按题型分组改回按年份分组。
+      - 作答完整性：每道题都必须作答，将该题所选选项前的 [ ] 改为 [x]，全卷恰好 30 处 [x]，每题恰好一处；整卷没有任何 [x]、某题未勾选，或一题勾选多项，均判为未完成作答。
+      - 答案边界：答案只能通过勾选产生，学生不得在提交文件中自行添加正确答案、答案解析、答案速查表或题目年份对照表，也不得改动作答说明、分组表等教师模板文字；在文件末尾另附答案清单的，按多余内容处理并在反馈中指出。
+      - 判定边界：本文本阶段只检查文件完整性与作答完整性，即每题是否填写了答案，不判断所选选项是否正确，不核对、不解释正确答案，也不因答案分布、与他人相同或与他人不同而判为不合格；内容正确性将在期末统一检测。
+  Lab6:
+    deadline: "2026-11-16T23:59:59+08:00"
+    grading:
+      mode: legacy
+    report_template: homework/Lab6/Lab6.md
+    required_files:
+      - Lab6.md
+      - imgs/lab6_split.png
+    # 唯一必做实验：虚拟地址分解与观测，报告加 1 张运行截图。
+    template_metrics:
+      enabled: true
+      report_file: Lab6.md
+      characters: ['#', '-', '*', '`', '|', '>']
+      max_file_bytes: 200000
+    vision_files:
+      - imgs/lab6_split.png
+    review_points:
+      - 审核范围：只审核「二、实验步骤：虚拟地址分解与观测」步骤 8 的运行信息表、「地址分解结果：本人实测记录」表及结果核对表，以及步骤 9 的 imgs/lab6_split.png。字段对应说明、计算方法与完整填写示例均为教学内容，不属于学生作答；保留这些示例不能代替填写本人实测记录。步骤 1 至 7 为操作指导，不另要求填写预测、源码解释或逐步操作报告。第四节为选读，不要求执行、作答或截图；本次没有教师演示任务、页表手算或五道简答。保留模板正文、表格及图片引用，模板数量检查不能替代实测记录审核。
+      - 步骤 8 运行信息：应填写本人 Ubuntu 实验目录完整路径、编译退出状态、运行退出状态及页大小。路径通常以 /home/用户名/os-labs/Lab6 结尾，按实际环境核对。两个退出状态应分别来自紧跟 gcc 与 ./addr_split 的 echo $?，正常均为 0；不要求填源码传送方式、gcc 版本、PID 或指针宽度。曾遇到错误但最终修正成功可以接受；不能用编译成功状态替代运行状态。
+      - 步骤 8 地址分解：全局变量、堆上的对象、栈上的变量均应填写完整虚拟地址、VPN 和 offset。按本人页大小核对 VPN = 地址整除页大小、offset = 地址对页大小取余。地址允许保留十六进制，VPN 与偏移按程序输出；不要求手工换算长地址、计算物理地址或比较不同对象的 VPN 差值。三个对象记录须与截图对应同一次运行，不要求地址等于教学示例。
+      - 步骤 8 偏移范围核对：应填写是或否，并列出本人页大小确定的偏移范围及三个实测偏移。范围为 0 至 ps−1；4 KiB 页时为 0 至 4095。使用其他页大小时按实测 ps 判断，不因与 4096 不同而判错。不得把允许范围上限写为 ps，若实际数据不符合关系，应核对字段和运行批次，不要求编造符合示例的结果。
+      - 步骤 8 下一页核对：只比较全局变量输出中的当前 VPN 与「下一页首地址」后对应的 VPN，应填写是或否并列出两者，后者应比前者大 1。不要把「地址 +1 的页号」误作下一页 VPN，前者在未到页末时通常等于当前 VPN。不要求计算下一页十六进制地址，也不要求额外证明全部对象的页边界关系。
+      - 观察与选读边界：所在区间保留在截图中即可，不要求在报告另抄 maps、解释设备号/inode/文件偏移或回答映射原理题。全局变量通常位于程序可写映射，malloc 对象通常位于 [heap]，其他分配器下也可能位于匿名映射，栈变量通常位于 [stack]，按实际输出核对。页表映射、PFN、present、TLB、缺页、耗时与容量均属选读，不要求补做 pte_dump 或 tlb_probe，不因选读未完成扣分。
+      - 提交物边界：只提交 Lab6.md 与 imgs/lab6_split.png，共两个文件。源码与可执行文件留在 Ubuntu 实验目录，不要求补交源码、运行日志、/proc 内容或其他截图。清单外文件按多余文件处理，不因正文出现选读程序名而要求提交相应产物。
+      - 合理差异与异常：目录、地址、页大小与等价编译命令可以随环境不同。报告与截图采用同一次运行，保留真实异常并说明尚未完成的环节；明确的环境限制请教师核对，不要求伪造输出，也不将失败描述为成功。曾出现错误但最终修复成功不影响判定。
+    vision_review_points:
+      - 截图要求：仅审核 imgs/lab6_split.png，必须为本人环境的电脑截图，命令及对应输出清晰可读，不接受手机拍屏或他人截图。允许将同一次运行分段截取后拼成一张图，不允许修改输出文字或拼接不同运行的数据。不要求额外身份标记、编译命令或退出状态出现在截图中。
+      - 输出完整性：应包含 ./addr_split 命令、pagesize，以及【全局变量】【堆上的对象】【栈上的变量】三段完整输出。各段应含地址、VPN、offset、本页首地址、地址 +1 的页号、下一页首地址及其 VPN、所在区间。缺少运行命令、页大小或任意一段对象输出时判为不完整；个别字段缺失时明确指出。若出现真实 maps 读取错误，结合报告说明交教师核对，不将错误输出当作成功记录。
+      - 一致性：报告中的页大小、三组地址/VPN/offset 和全局变量的下一页 VPN 应与截图一致。允许有无 0x、前导零等格式差异。程序输出均为虚拟地址信息，不要求 PFN、物理地址、pagemap 状态或 TLB 测量截图。
