@@ -1,0 +1,29 @@
+{
+  "assignment_id": "Lab7",
+  "course_id": "operating-system",
+  "created_at": "2026-11-23T02:04:35.570935+00:00",
+  "eligibility": "ELIGIBLE",
+  "eligibility_rule_version": "v1",
+  "event_at": "2026-11-23T02:02:23+00:00",
+  "files": [
+    {
+      "blob_sha": "236034bdae27446259e2c3e039fbe779b90ee729",
+      "path": "2026333039程文杰/Lab7/Lab7.md"
+    },
+    {
+      "blob_sha": "9dfa6f5782e579316fe19bbf5dc59e7baec0080e",
+      "path": "2026333039程文杰/Lab7/imgs/lab7_counter.png"
+    },
+    {
+      "blob_sha": "934e5533dcccca4818c60c00cb1e118e768082c9",
+      "path": "2026333039程文杰/Lab7/imgs/lab7_threads.png"
+    }
+  ],
+  "github_login": "C418-Frog",
+  "head_sha": "b17fbdd6b8260d3a30554d1a954de26a7df589fe",
+  "pr_number": 361,
+  "schema_version": 1,
+  "source_workflow_run_id": 45097914959,
+  "student_id": "2026333039",
+  "verified_from": "trusted_gitHub_event_and_exact_sha"
+}
