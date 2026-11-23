@@ -472,8 +472,8 @@ B 读取新值： 锁释放后，B 成功获取锁，进入临界区。此时 B 
 将本人实验环境的终端截图保存为 PNG，置于报告同级的 `imgs` 目录，并在 Markdown 预览中检查图像是否完整、清晰。
 
 ![两个线程的输出顺序]
-![alt text](image.png)
-![共享计数器加锁前后的运行结果](image-1.png)
+![alt text]![alt text](lab7_threads.png)
+![共享计数器加锁前后的运行结果]![alt text](lab7_counter.png)
 
 ## 三、故障排查
 
