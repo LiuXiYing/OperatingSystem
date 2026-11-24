@@ -2,16 +2,16 @@
   "assignments": {
     "Lab1": {
       "deadline": "2026-10-12T21:59:59+08:00",
-      "finalized": 31,
+      "finalized": 32,
       "mode": "legacy",
-      "receipts": 31,
+      "receipts": 32,
       "scored": 0
     },
     "Lab2": {
       "deadline": "2026-10-19T23:59:59+08:00",
-      "finalized": 32,
+      "finalized": 33,
       "mode": "legacy",
-      "receipts": 32,
+      "receipts": 33,
       "scored": 0
     },
     "Lab3": {
@@ -30,21 +30,28 @@
     },
     "Lab5": {
       "deadline": "2026-11-09T23:59:59+08:00",
-      "finalized": 33,
+      "finalized": 34,
       "mode": "legacy",
-      "receipts": 33,
+      "receipts": 34,
       "scored": 0
     },
     "Lab6": {
       "deadline": "2026-11-16T23:59:59+08:00",
-      "finalized": 31,
+      "finalized": 32,
       "mode": "legacy",
-      "receipts": 31,
+      "receipts": 32,
       "scored": 0
+    },
+    "Lab7": {
+      "deadline": "2026-12-01T00:00:00+08:00",
+      "finalized": 6,
+      "mode": "tiered",
+      "receipts": 6,
+      "scored": 6
     }
   },
   "course_id": "operating-system",
   "errors": 0,
-  "generated_at": "2026-11-17T02:56:25.278150+00:00",
+  "generated_at": "2026-11-24T04:47:51.901728+00:00",
   "schema_version": 1
 }
