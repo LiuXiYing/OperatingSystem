@@ -16,9 +16,9 @@
     },
     "Lab3": {
       "deadline": "2026-10-26T23:59:59+08:00",
-      "finalized": 34,
+      "finalized": 35,
       "mode": "legacy",
-      "receipts": 34,
+      "receipts": 35,
       "scored": 0
     },
     "Lab4": {
@@ -44,14 +44,14 @@
     },
     "Lab7": {
       "deadline": "2026-12-01T00:00:00+08:00",
-      "finalized": 6,
+      "finalized": 10,
       "mode": "tiered",
-      "receipts": 6,
-      "scored": 6
+      "receipts": 10,
+      "scored": 10
     }
   },
   "course_id": "operating-system",
   "errors": 0,
-  "generated_at": "2026-11-24T04:47:51.901728+00:00",
+  "generated_at": "2026-11-25T03:33:34.032506+00:00",
   "schema_version": 1
 }
